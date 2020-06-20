@@ -23,24 +23,61 @@
   </head>
 
   <body>
-    <div class="text-center">
-      <span class="text-center" id="logo">ExpTrack.io</span>
+    <div class="container">
+      <nav class="navbar navbar-expand-md py-4 navbar-fixed-top" id="main-nav">
+        <a href="#home" class="navbar-brand">
+          <div class="text-center">
+            <span class="text-center" id="logo">ExpTrack.io</span>
+          </div>
+        </a>
+        <button
+          class="navbar-toggler navbar-dark"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+          id="nav-toggle"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a href="#home" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#about" class="nav-link"></a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#work" class="nav-link">About</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
 
     <!-- Card -->
     <div class="container">
       <div class="card">
         <div class="card-body">
-          <p class="card-title">
-            <h1>Add Expense</h1>
-          </p>
+          <!-- <p class="card-title">
+            Add Expense
+          </p> -->
           <form class="form-group col-12">
+            <div class="input-field">
+              <label for="budget"></label>
+              <input
+                type="number"
+                placeholder="Total Budget"
+                id="total-budget"
+                class="form-control"
+              />
+            </div>
             <div class="row">
               <div class="input-field col-4">
                 <label for="item-name"></label>
                 <input
                   type="text"
-                  placeholder="Add Item"
+                  placeholder="Item"
                   id="item-name"
                   class="form-control mb-4"
                 />
@@ -49,7 +86,7 @@
                 <label for="item-amount"></label>
                 <input
                   type="number"
-                  placeholder="Add Amount"
+                  placeholder="Amount"
                   id="item-amount"
                   class="form-control mb-4"
                 />
@@ -58,16 +95,16 @@
                 <label for="item-date"></label>
                 <input
                   type="date"
-                  placeholder="Add date"
+                  placeholder="Date"
                   id="item-date"
                   class="form-control mb-4"
                 />
               </div>
               <div class="container">
-                <button class="add-btn btn  btn-block">
+                <button class="add-btn btn btn-block">
                   <i class="fa fa-plus"></i> Add Expense
                 </button>
-                <button class="clear-btn btn  btn-block">
+                <button class="clear-btn btn btn-block">
                   <i class="fa fa-refresh"> </i> Clear All
                 </button>
               </div>
@@ -89,17 +126,27 @@
     </div>
 
     <!-- Budget -->
-  <div class="container">
-    <h3 class="text-center mt-2 ">
-      Total Expenditure:
-      <span class="total-amount">0 </span>
-    </h3>
-  </div>
+    <div id="custom" class="container" style="display: none;">
+      <div class="row">
+        <div class="col-6">
+          <h3 class="text-center mt-2">
+            Total Budget:
+            <span class="budget">0 </span>
+          </h3>
+        </div>
+        <div class="col-6">
+          <h3 class="text-center mt-2">
+            Total Expenditure:
+            <span class="total-amount">0 </span>
+          </h3>
+        </div>
+      </div>
+    </div>
 
     <!-- Item List -->
     <div class="container">
-      <table class="table  text-white item-list">
-        <!-- <thead>
+      <table class="table text-white item-list">
+        <thead class="hi" style="display: none;">
           <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
@@ -108,8 +155,8 @@
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody> -->
-        <!-- <tr>
+        <tbody>
+          <!-- <tr>
             <th scope="row">1</th>
             <td>Mark</td>
             <td>Otto</td>
@@ -132,12 +179,13 @@
             <td>the Bird</td>
             <td>@twitter</td>
           </tr> -->
-        <!-- </tbody> -->
+          <!-- </tbody> -->
+        </tbody>
       </table>
     </div>
 
     <div class="container">
-      <div id="yo"></div>
+      <div id="yo" style="display: none;"></div>
     </div>
     <script src="js/app.js"></script>
     <script
@@ -155,7 +203,5 @@
       integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
       crossorigin="anonymous"
     ></script>
-
-    
   </body>
 </html>
