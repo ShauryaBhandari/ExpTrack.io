@@ -317,12 +317,35 @@ const AppCtrl = ((ItemCtrl, StorageCtrl, UICtrl) => {
       e.preventDefault();
       UICtrl.clearAllItems();
     });
+    document.querySelector(".clear-btn").addEventListener("click", (e) => {
+      const custom = document.querySelector("#custom");
+      custom.style.display = "none";
+      const yo = document.querySelector("#yo");
+      yo.style.display = "none";
+      document.querySelector(".hi").style.display = "none";
+      e.preventDefault();
+    });
+
+    document
+      .querySelector(".add-btn")
+      .addEventListener("click", function load() {
+        const custom = document.querySelector("#custom");
+        custom.style.display = "block";
+        const yo = document.querySelector("#yo");
+        yo.style.display = "block";
+      });
+    document
+      .getElementById("total-budget")
+      .addEventListener("keyup", function () {
+        const b = document.getElementById("total-budget");
+        document.querySelector(".budget").textContent = `${b.value}`;
+      });
     document.querySelector(".add-btn").addEventListener(
       "click",
       function addThead() {
         const thead = document.createElement("thead");
         thead.innerHTML = `
-    <tr>
+    <tr class="hi">
           <th scope="col">ID</th>
           <th scope="col">Name</th>
           <th scope="col">Amount</th>
@@ -392,6 +415,7 @@ const AppCtrl = ((ItemCtrl, StorageCtrl, UICtrl) => {
       // console.log("Test");
       // Set initial state
       UICtrl.clearEditState();
+      // AppCtrl.load();
       // fetch items form the data structure
       const items = ItemCtrl.getItems();
 
@@ -401,12 +425,29 @@ const AppCtrl = ((ItemCtrl, StorageCtrl, UICtrl) => {
 
       UICtrl.showTotalAmt(total);
       loadEL();
+      // const custom = document.querySelector("#custom");
+      // custom.style.display = "block";
+      // const yo = document.querySelector("#yo");
+      // yo.style.display = "block";
 
       google.charts.load("44", {
         callback: drawBackgroundColor,
         packages: ["corechart"],
       });
       function drawBackgroundColor() {
+        //check for Navigation Timing API support
+        if (window.performance) {
+          // console.info("window.performance works fine on this browser");
+        }
+        if (performance.navigation.type == 1) {
+          // console.info("This page is reloaded");
+          custom = document.querySelector("#custom");
+          custom.style.display = "block";
+          const yo = document.querySelector("#yo");
+          yo.style.display = "block";
+        } else {
+          // console.info("This page is not reloaded");
+        }
         let d = [];
         var results = items.filter(function OP(itemsarr) {
           var todayTime = new Date(itemsarr.date);
