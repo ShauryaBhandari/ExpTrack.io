@@ -10,6 +10,39 @@ html {
   height: 100%;
   background: var(--bg-primary) !important;
 }
+#main-nav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+#main-nav ul {
+  display: flex;
+}
+
+#main-nav li {
+  padding: 0rem 1rem;
+  text-align: center;
+}
+
+#main-nav a {
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  border-bottom: 3px transparent solid;
+  padding-bottom: 0.5rem;
+  transition: border-color 0.5s;
+}
+
+#main-nav a:hover {
+  /* border-color: #ccc; */
+  border-color: #ffbc00;
+}
+
+#main-nav a.current {
+  border-color: #ffbc00;
+  /* z-index: 2; */
+}
 .user_card {
   height: 400px;
   width: 350px;
@@ -97,7 +130,11 @@ html {
 }
 
 .card {
-  margin-top: 100px;
+  margin-top: 150px;
+  border: solid 10px rgba(144, 184, 248);
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
 }
 
 .card h1 {
@@ -144,7 +181,7 @@ html {
     color: var(--bg-secondary);
     text-decoration: none;
     /* text-transform: uppercase; */
-    font-size: 60px;
+    font-size: 40px;
     text-align: center;
     font-weight: 800;
     letter-spacing: -3px;
@@ -155,6 +192,11 @@ html {
   }
 
   .card {
-    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #custom h3 {
+    font-size: 24px;
   }
 }
